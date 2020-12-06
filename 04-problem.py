@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-import sys, os, argparse, operator, re
+import sys, os, argparse, operator, re, string
 
 def valid_height(hgt):
     h, unit = hgt[:-2], hgt[-2:]
@@ -10,11 +10,11 @@ def valid_height(hgt):
 
 def main(args):
     validation = {
-        "byr" : lambda x: x.isdigit() and int(x) in range(1920, 2002+1),
-        "iyr" : lambda x: x.isdigit() and int(x) in range(2010, 2020+1),
-        "eyr" : lambda x: x.isdigit() and int(x) in range(2020, 2030+1),
+        "byr" : lambda x: x.isdigit() and 1920 <= int(x) <= 2002,
+        "iyr" : lambda x: x.isdigit() and 2010 <= int(x) <= 2020,
+        "eyr" : lambda x: x.isdigit() and 2020 <= int(x) <= 2030,
         "hgt" : valid_height,
-        "hcl" : lambda x: len(x) == 7 and re.search("^#[0-9a-f]*$", x) and True,
+        "hcl" : lambda x: len(x) == 7 and x[0] == "#" and reduce(operator.and_, [i in string.hexdigits for i in list(x[1:])]),
         "ecl" : lambda x: x in [ "amb", "blu", "brn", "gry", "grn", "hzl", "oth" ],
         "pid" : lambda x: x.isdigit() and len(x) == 9,
         "cid" : lambda x: True
