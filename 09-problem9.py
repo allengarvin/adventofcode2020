@@ -11,7 +11,7 @@ def main(args):
     lines = [int(x.strip()) for x in open(args.file).readlines()]
 
     for n in range(args.queue, len(lines)):
-        prev = lines[0 if n - args.queue < 0 else n - args.queue:n]
+        prev = lines[n - args.queue:n]
         if lines[n] not in map(sum, itertools.combinations(prev, 2)):
             print("Problem 1: %d" % lines[n])
             for arr in contiguous(lines[:n]):
