@@ -4,7 +4,7 @@ import sys, os, argparse, operator, re, string
 
 def valid_height(hgt):
     h, unit = hgt[:-2], hgt[-2:]
-    if h.isdigit() and ((unit == "cm" and int(h) in range(150, 193+1)) or (unit == "in" and int(h) in range(59, 76+1))):
+    if h.isdigit() and ((unit == "cm" and 150 <= int(h) <= 193) or (unit == "in" and 59 <= int(h) <= 76)):
         return True
     return False
 
@@ -28,19 +28,11 @@ def main(args):
 
             if reduce(operator.and_, [validation[k](v) for k, v in passport.iteritems()]):
                 count_two += 1
-    if args.one:
-        print "Problem 1:", count_one
-    if args.two:
-        print "Problem 2:", count_two
+    print("Problem 1: %d" % count_one)
+    print("Problem 2: %d" % count_two)
 
 if __name__ == "__main__":
     default_file = sys.argv[0].split("-")[0] + "-input.txt"
     ap = argparse.ArgumentParser(description="2020 Day 4 AOC: Passport processing")
-    ap.add_argument("-1", "--one", action="store_true", help="Problem 1")
-    ap.add_argument("-2", "--two", action="store_true", help="Problem 2")
     ap.add_argument("file", help="Input file", default=default_file, nargs="?")
-    args = ap.parse_args()
-    if not args.one and not args.two:
-        args.one = args.two = True
-    main(args)
-    
+    main(ap.parse_args())
