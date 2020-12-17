@@ -1,32 +1,32 @@
 #!/usr/bin/python
 
-import sys, os, argparse, operator, re
+import sys, os, argparse
+from itertools import product
 
-def surround(p, dimensions):
-    if dimensions == 4:
-        s = set([(x,y,z,w) for x in [p[0]-1,p[0],p[0]+1] for y in [p[1]-1,p[1],p[1]+1] for z in [p[2]-1,p[2],p[2]+1] for w in [p[3]-1,p[3],p[3]+1]]) 
-    else:
-        s = set([(x,y,z) for x in [p[0]-1,p[0],p[0]+1] for y in [p[1]-1,p[1],p[1]+1] for z in [p[2]-1,p[2],p[2]+1]]) 
+def tuple_add(t1, t2):
+    return tuple(map(lambda i, j: i + j, t1, t2))
+
+def surround(p):
+    s = set(map(lambda x: tuple_add(p, x), product(*[[-1,0,1]]*len(p))))
     s.remove(p)
-
     return s
     
 def toggle(active, dimensions):
     new_space = set()
 
     for p in active:
-        new_space = new_space.union(surround(p, dimensions))
+        new_space = new_space.union(surround(p))
     new_space -= active
 
     new_active = set()
     new_inactive = set()
     for p in active:
-        if 2 <= len(surround(p, dimensions) & active) <= 3:
+        if 2 <= len(surround(p) & active) <= 3:
             new_active.add(p)
         else:
             new_inactive.add(p)
     for p in new_space:
-        if len(surround(p, dimensions) & active) == 3:
+        if len(surround(p) & active) == 3:
             new_active.add(p)
         else:
             new_inactive.add(p)
