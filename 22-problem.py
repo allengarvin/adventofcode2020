@@ -26,10 +26,7 @@ def recurse_game(players, prev_orders, game):
         else:
             winner = [a,b].index(max([a,b]))+1
 
-        if winner == 1:
-            players[winner] += [a,b]
-        else:
-            players[winner] += [b,a]
+        players[winner] += [a,b] if winner == 1 else [b,a]
 
     return winner
 
