@@ -1,19 +1,19 @@
-#!/usr/bin/python
+#!/usr/local/bin/python3.7
 
-import sys, os, argparse
+import sys, argparse
 from itertools import combinations
 from operator import mul
+from functools import reduce
 
 def main(args):
-    nums = map(int, open(args.file).readlines())
+    nums = [int(x) for x in open(args.file)]
 
     for n in [2,3]:
-        print "Problem {0}: {1}".format(n-1, reduce(mul, filter(lambda x: sum(x) == 2020, combinations(nums, n))[0]))
+        print("Problem {0}: {1}".format(n-1, reduce(mul, [x for x in combinations(nums, n) if sum(x) == 2020][0])))
 
 if __name__ == "__main__":
-    default_file = sys.argv[0].split("-")[0] + "-input.txt"
-    ap = argparse.ArgumentParser(description="2020 Day 1 AOC: Report repair")
-    ap.add_argument("file", help="Input file", default=default_file, nargs="?")
-    args = ap.parse_args()
-    main(args)
+    day = sys.argv[0].split("-")[0]
+    ap = argparse.ArgumentParser(description="2020 Day {0} AOC: Report repair".format(day))
+    ap.add_argument("file", help="Input file", default=day + "-input.txt", nargs="?")
+    main(ap.parse_args())
     
