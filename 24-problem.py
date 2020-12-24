@@ -16,6 +16,7 @@ def main(args):
     for day in range(100):
         new_floor = dict()
         new_floor.update(floor)
+
         for p in floor.keys():
             new_floor.update({ p + p1 : floor.get(p + p1, 0) for p1 in shifts_c.values() })
     
