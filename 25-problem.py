@@ -3,25 +3,22 @@
 import sys, os, argparse
 
 def transform(subject, keys, setloops):
-    loops = [None] * len(keys)
     val = cnt = 1
-    while None in loops:
+    while True:
         val = (val * subject) % 20201227
-        if setloops:
-            if cnt == setloops:
+        if keys:
+            for i, k in enumerate(keys):
+                if val == k:
+                    return cnt, keys[1-i]
+        elif cnt == setloops:
                 return val
-        else:
-            for i, l in enumerate(loops):
-                if l == None and val == keys[i]:
-                    loops[i] = cnt
         cnt += 1
-    return min(loops), keys[1 - loops.index(min(loops))]
         
 def main(args):
     keys = [int(n) for n in open(args.file)]
 
     m, k = transform(7, keys, False)
-    print("Part 1: {0}".format(transform(k, [None], m)))
+    print("Part 1: {0}".format(transform(k, [], m)))
     
 if __name__ == "__main__":
     day = sys.argv[0].split("-")[0]
