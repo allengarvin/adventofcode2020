@@ -37,6 +37,13 @@ Golang
 >are not used block compilation. It makes it really difficult to comment things out briefly
 >when debugging or testing.
 
+PHP
+>Knowledge: 4
+
+>I worked at a PHP shop for over a decade, though as a systems administrator, not a developer.
+>However, during this time I spent a lot of time helping developers debug code, and occasionally
+>I would end up fixing bugs and writing short things. Also, I HATE PHP.
+
 Pike
 >Knowledge: 5
 
