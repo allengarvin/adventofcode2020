@@ -37,6 +37,13 @@ Golang
 >are not used block compilation. It makes it really difficult to comment things out briefly
 >when debugging or testing.
 
+Javascript
+>Knowledge: 3
+
+>I've tried my hardest to avoid JavaScript all these years. However, since I work with Mongo
+>daily at my current job, I've been forced to use it some. Here's a program that creates a
+>couple collections in Mongo to help solve the problem.
+
 PHP
 >Knowledge: 4
 
