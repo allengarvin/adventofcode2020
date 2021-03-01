@@ -67,6 +67,13 @@ Ruby
 >I wrote a lot with it in 2014, when I was looking for a language with better libraries than Pike.
 >I love nearly everything about it, but I ended up switching to Python as my main scripting language.
 
+TCL
+>Knowledge: 3.5
+
+>I used TCL in the 90s as a sysadmin tool and occasionally to develop X apps via wish, but mostly
+>switched to Pike by 2000 or so. It has neat features, and you can write kinda-functional code
+>with it, but it also tends to annoy me regularly.
+
 ----------------------------------------------------------------------------------------------------
 
 Problem: https://adventofcode.com/2020/day/1
