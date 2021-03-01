@@ -1,14 +1,14 @@
 Knowledge of language:
 
->1   No experience before
+1   No experience before
 
->2   Have read a bit about it, or worked with a closely related language
+2   Have read a bit about it, or worked with a closely related language
 
->3   Have written a few trivial things in it
+3   Have written a few trivial things in it
 
->4   Worked with in the past, but no extensive experience
+4   Worked with in the past, but no extensive experience
 
->5   Multiple years experience
+5   Multiple years experience
 
 Bash
 >Knowledge: 5
