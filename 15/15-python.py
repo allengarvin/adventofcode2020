@@ -1,9 +1,9 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
-import sys, os, argparse, operator, re
+import sys, argparse
 
 def main(args):
-    seq = map(int, args.nlist.split(","))
+    seq = [int(x) for x in args.nlist.split(",")]
     
     previous = { n: i for i, n in enumerate(seq) }
     
@@ -17,9 +17,9 @@ def main(args):
         cnt += 1
 
         if cnt + 1 == 2020:
-            print "Problem 1:", next_seq
+            print("Problem 1:", next_seq)
         if cnt + 1 == 30000000:
-            print "Problem 2:", next_seq
+            print("Problem 2:", next_seq)
             break
 
 if __name__ == "__main__":
