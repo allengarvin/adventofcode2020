@@ -24,7 +24,7 @@ def main(args):
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser(description="2020 Day 15 AOC: Rambunctious recitation")
-    ap.add_argument("nlist", help="Numberlist", default="0,3,6",nargs="?")
+    ap.add_argument("nlist", help="Numberlist", default="2,0,1,7,4,14,18",nargs="?")
     args = ap.parse_args()
     main(args)
     
